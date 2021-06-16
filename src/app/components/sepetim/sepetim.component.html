@@ -1,0 +1,13 @@
+<div class="container">
+    <mat-grid-list cols="4" rowHeight="3:2" >
+        <mat-grid-tile *ngFor="let urun of urunler" ><mat-card  >
+            <mat-card-title>
+                {{urun.UrunAdi}}
+            </mat-card-title>
+            <mat-card-subtitle>{{urun.UrunAciklama}}</mat-card-subtitle>
+            <mat-card-footer>{{urun.UrunFiyati|currency:"₺"}} <button mat-raised-button color="accent">Sepete Ekle</button></mat-card-footer>
+            
+        </mat-card></mat-grid-tile>
+      </mat-grid-list>
+      
+</div>

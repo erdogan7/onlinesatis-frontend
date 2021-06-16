@@ -1,0 +1,16 @@
+<div class="container" style="margin-top: 20px;">
+    <h2 style="margin-left: 40%;">Giriş Yap</h2>
+    <form #registerForm="ngForm" style="margin-left: 25%;">
+        <mat-form-field appearance="outline" >
+            <mat-label>Kullanıcı Adı</mat-label>
+            <input matInput placeholder="Kullanıcı Adı ya da Şifre" type="text" #UyeKullaniciAdi>
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+            <mat-label>Parola</mat-label>
+            <input matInput placeholder="Parola" type="password" #UyeParola >
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="OturumAc(UyeKullaniciAdi.value,UyeParola.value)">Giriş Yap</button>
+        <button mat-button [routerLink]="['/register']">Kayıt Ol</button>
+    </form>
+
+</div>

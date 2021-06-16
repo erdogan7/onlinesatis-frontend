@@ -1,0 +1,43 @@
+<div class="container">
+    <button mat-fab style="margin-bottom: 10px;" matTooltip="Ürün Ekle" color="primary" (click)="Ekle()">
+        <mat-icon aria-label="label">add</mat-icon>
+    </button>
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="UrunAdi">
+            <mat-header-cell *matHeaderCellDef> Urun Adı
+            </mat-header-cell>
+            <mat-cell *matCellDef="let urun"> {{urun.UrunAdi}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="UrunFiyati">
+            <mat-header-cell *matHeaderCellDef> Fiyat
+            </mat-header-cell>
+            <mat-cell *matCellDef="let urun"> {{urun.UrunFiyati| currency:"₺"}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="UrunStok">
+            <mat-header-cell *matHeaderCellDef> Stok
+            </mat-header-cell>
+            <mat-cell *matCellDef="let urun"> {{urun.UrunStok}} <div style="opacity: 0.9;font-style: italic;" *ngIf="urun.UrunSatisCinsiId==1">  kg</div> <div style="opacity: 0.9;font-style: italic;" *ngIf="urun.UrunSatisCinsiId==2">adet</div></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Islemler">
+            <mat-header-cell *matHeaderCellDef> İşlemler
+            </mat-header-cell>
+            <mat-cell *matCellDef="let urun"> 
+                <button mat-icon-button matTooltip="Detay" color="primary">
+                    <mat-icon aria-label="label">feed</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Düzenle" color="accent" (click)="Duzenle(urun)">
+                    <mat-icon aria-label="label">edit</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Sil" color="warn" (click)="Sil(urun)">
+                    <mat-icon aria-label="label">delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+ 
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator
+                [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>

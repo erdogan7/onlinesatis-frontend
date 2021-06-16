@@ -1,0 +1,38 @@
+<div class="container">
+    <mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="UyeAdSoyad">
+            <mat-header-cell *matHeaderCellDef> Ad Soyad
+            </mat-header-cell>
+            <mat-cell *matCellDef="let uye"> {{uye.UyeAdSoyad}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="UyeKullaniciAdi">
+            <mat-header-cell *matHeaderCellDef> Kullanıcı Adı
+            </mat-header-cell>
+            <mat-cell *matCellDef="let uye"> {{uye.UyeKullaniciAdi}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="UyeMail">
+            <mat-header-cell *matHeaderCellDef> E-mail
+            </mat-header-cell>
+            <mat-cell *matCellDef="let uye"> {{uye.UyeMail}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="UyeAdres">
+            <mat-header-cell *matHeaderCellDef> Adres
+            </mat-header-cell>
+            <mat-cell *matCellDef="let uye"> {{uye.UyeAdres}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Islemler">
+            <mat-header-cell *matHeaderCellDef> İşlemler
+            </mat-header-cell>
+            <mat-cell *matCellDef="let uye"> 
+                <button mat-icon-button color="accent" matTooltip="Düzenle" (click)="Duzenle(uye)">
+                    <mat-icon aria-label="label">edit</mat-icon>
+                </button>    
+                <button mat-icon-button color="warn" matTooltip="Sil">
+                    <mat-icon aria-label="label">delete</mat-icon>
+                </button>   
+            </mat-cell>
+        </ng-container>
+     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>

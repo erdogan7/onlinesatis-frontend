@@ -1,0 +1,23 @@
+<div class="container">
+    <form #registerForm="ngForm" style="margin-left: 25%;">
+        <mat-form-field appearance="outline" >
+            <mat-label>Kullanıcı Adı</mat-label>
+            <input matInput placeholder="Kullanıcı Adı" type="text" #UyeKullaniciAdi name="UyeKullaniciAdi" ngModel>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Ad Soyad</mat-label>
+            <input matInput placeholder="Ad Soyad" type="text" #UyeAdSoyad name="UyeAdSoyad" ngModel>
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="E-mail" type="text" #UyeMail name="UyeMail" ngModel>
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+            <mat-label>Parola</mat-label>
+            <input matInput placeholder="Parola" type="password" #UyeParola name="UyeParola" ngModel>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="UyeOlustur(registerForm.value)">Kayıt Ol</button>
+        <button mat-button [routerLink]="['/login']">Giriş Yap</button>
+    </form>
+
+</div>
